@@ -1,4 +1,3 @@
-import 'package:desafio_os/features/home/presentation/home/home_controller.dart';
 import 'package:desafio_os/features/login/data/datasources/local/local_data_source_implemt.dart';
 import 'package:desafio_os/features/login/data/datasources/local/local_data_source_interface.dart';
 import 'package:desafio_os/features/login/data/datasources/remote/remote_data_source.dart';
@@ -45,11 +44,7 @@ void setupRegisterDependencies() {
         repository: GetIt.instance.get<IRegisterRepository>(),
       ),
     )
-    ..registerFactory<HomeController>(
-      () => HomeController(
-        repository: GetIt.instance.get(),
-      ),
-    )
+   
     ..registerLazySingleton<IOrderServiceLocalDataSource>(
       () => OrderServiceLocalDataSource(),
     )

@@ -1,5 +1,5 @@
 import 'package:desafio_os/features/home/presentation/home/home_page.dart';
-import 'package:get_it/get_it.dart';
+
 import 'package:go_router/go_router.dart';
 
 class HomeRoutes {
@@ -14,7 +14,6 @@ final homeRoutes = [
     path: HomeRoutes.homeRoute,
     builder: (context, state) {
       return HomePage(
-        controller: GetIt.instance.get(),
       );
     },
   ),

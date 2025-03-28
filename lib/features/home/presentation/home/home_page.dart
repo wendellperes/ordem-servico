@@ -1,4 +1,3 @@
-import 'package:desafio_os/features/home/presentation/home/home_controller.dart';
 import 'package:desafio_os/features/register_order_services/route.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -6,18 +5,15 @@ import 'package:desafio_os/features/login/presentation/router.dart';
 
 class HomePage extends StatefulWidget {
     const HomePage({
-    required this.controller,
     super.key,
   });
 
-  final HomeController controller;
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  late final controller = widget.controller;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
