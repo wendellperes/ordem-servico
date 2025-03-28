@@ -13,7 +13,6 @@ import 'package:desafio_os/features/register_user/presentation/create_user_page/
 import 'package:desafio_os/features/login/presentation/login_page/login_controller.dart';
 import 'package:desafio_os/features/register_order_services/data/datasources/local/local_data_source_implemt.dart';
 import 'package:desafio_os/features/register_order_services/data/datasources/local/local_data_source_interface.dart';
-import 'package:desafio_os/features/register_order_services/data/datasources/remote/remote_data_source_interface.dart';
 import 'package:desafio_os/features/register_order_services/data/repositories/repository_implement.dart';
 import 'package:desafio_os/features/register_order_services/data/repositories/repository_interface.dart';
 import 'package:desafio_os/features/register_order_services/presentation/create_order_service_controller.dart';
@@ -54,17 +53,16 @@ void setupRegisterDependencies() {
     ..registerLazySingleton<IOrderServiceLocalDataSource>(
       () => OrderServiceLocalDataSource(),
     )
-    ..registerFactory<IOrderServiceRemoteDataSource>(
-      () => throw UnimplementedError('Remote data source not implemented'),
-    )
+    
     ..registerFactory<IOrderServiceRepository>(
       () => OrderServiceRepository(
         localDataSource: GetIt.instance.get<IOrderServiceLocalDataSource>(),
-        remoteDataSource: GetIt.instance.get<IOrderServiceRemoteDataSource>(),
       ),
     )
     ..registerFactory<CreateOrderServiceController>(
-      () => CreateOrderServiceController(),
+      () => CreateOrderServiceController(
+        repository: GetIt.instance.get<IOrderServiceRepository>(), 
+      ),
     )
     ..registerFactory<LoginController>(
       () => LoginController(

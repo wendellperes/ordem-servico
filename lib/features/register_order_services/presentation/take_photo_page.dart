@@ -1,9 +1,6 @@
-import 'dart:io';
 
-import 'package:desafio_os/features/home/router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'create_order_service_controller.dart';
 import 'package:camera/camera.dart';
 
 class TakePhotoPage extends StatefulWidget {
